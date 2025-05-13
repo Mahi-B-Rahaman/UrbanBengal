@@ -159,4 +159,38 @@ const orderProducts = () => {
     document.getElementById('delivery-charge').textContent = '0';
     document.getElementById('total').textContent = '0';
 }
-  
+
+// Add coupon code functionality
+function applyCoupon() {
+    const couponInput = document.getElementById('coupon-code');
+    const couponCode = couponInput.value.trim();
+    const total = document.getElementById('total');
+
+    const couponApplied = localStorage.getItem('couponApplied');
+    const totalPrice = parseFloat(total.textContent);
+
+    if (couponCode === 'TOOLS' && totalPrice > 1000 && !couponApplied) {
+        localStorage.setItem('couponApplied', true);
+
+        const discountedPrice = totalPrice * 0.9; // Apply 10% discount
+        total.textContent = discountedPrice.toFixed(2);
+        alert('Coupon applied successfully! 10% discount has been added.');
+    } else if (couponApplied) {
+        alert('You have already used the coupon code. Please try again.');
+    } else {
+        alert('Invalid coupon code or Does not meet the requirements. Please try again.');
+    }
+
+    // Clear the input field
+    couponInput.value = '';
+        const totalPrice = parseFloat(total.textContent);
+        const discountedPrice = totalPrice * 0.01; // Apply 10% discount
+        total.textContent = discountedPrice.toFixed(2);
+        alert('Coupon applied successfully! 10% discount has been added.');
+    } else {
+        alert('Invalid coupon code or Does not meet the requirements. Please try again.');
+    }
+
+    // Clear the input field
+    couponInput.value = '';
+}

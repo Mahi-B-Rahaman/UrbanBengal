@@ -183,14 +183,4 @@ function applyCoupon() {
 
     // Clear the input field
     couponInput.value = '';
-        const totalPrice = parseFloat(total.textContent);
-        const discountedPrice = totalPrice * 0.01; // Apply 10% discount
-        total.textContent = discountedPrice.toFixed(2);
-        alert('Coupon applied successfully! 10% discount has been added.');
-    } else {
-        alert('Invalid coupon code or Does not meet the requirements. Please try again.');
-    }
-
-    // Clear the input field
-    couponInput.value = '';
 }
